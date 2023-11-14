@@ -48,7 +48,7 @@ namespace Web.Mega.Finance.Api.Controllers
         {
             try
             {
-                var query = await context.tr_bpkb.Where(s => s.id == Id).ToListAsync();
+                var query = await context.tr_bpkb.Where(s => s.id == Id).FirstOrDefaultAsync();
                 return new ApiResponseObj()
                 {
                     data = query,

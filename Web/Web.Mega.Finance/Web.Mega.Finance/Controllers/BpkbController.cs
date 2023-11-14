@@ -27,7 +27,7 @@ namespace Web.Mega.Finance.Controllers
         {
             if (string.IsNullOrEmpty(HttpContext.Session.GetString("id"))) return RedirectToAction("Login", "Account");
             BaseRepository api = new BaseRepository(WebApiUrl);
-            var result = await api.Get("api/ApiBpkb/GetBy?Id="+ id);
+            var result = await api.Get("api/ApiBpkb/GetBy/"+ id);
             tr_bpkb data = JsonConvert.DeserializeObject<tr_bpkb>(result.data.ToString());
             return View(data);
         }
@@ -67,7 +67,7 @@ namespace Web.Mega.Finance.Controllers
         {
             if (string.IsNullOrEmpty(HttpContext.Session.GetString("id"))) return RedirectToAction("Login", "Account");
             BaseRepository api = new BaseRepository(WebApiUrl);
-            var result = await api.Get("api/ApiBpkb/GetBy?Id=" + id);
+            var result = await api.Get("api/ApiBpkb/GetBy/" + id);
             tr_bpkb data = JsonConvert.DeserializeObject<tr_bpkb>(result.data.ToString());
 
             var masterlocation = await api.Get("api/ApiLocation/Get");
@@ -101,7 +101,7 @@ namespace Web.Mega.Finance.Controllers
             if (string.IsNullOrEmpty(HttpContext.Session.GetString("id"))) return RedirectToAction("Login", "Account");
 
             BaseRepository api = new BaseRepository(WebApiUrl);
-            var result = await api.Get("api/ApiBpkb/GetBy?Id=" + id);
+            var result = await api.Get("api/ApiBpkb/GetBy/" + id);
             tr_bpkb data = JsonConvert.DeserializeObject<tr_bpkb>(result.data.ToString());
             return View(data);
         }
